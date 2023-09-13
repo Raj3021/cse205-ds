@@ -1,0 +1,13 @@
+class Solution {
+    public int findNumbers(int[] nums) {
+        int i=0;
+        for(int j = 0; j<nums.length ; j++){
+            String s = String.valueOf(nums[j]);
+            
+            if(s.length()%2==0){
+                i+=1;
+            }
+        }
+        return i;
+    }
+}
