@@ -1,0 +1,27 @@
+class Solution {
+    public int buyChoco(int[] prices, int money) {
+        sort(prices);
+        int t = money;
+        int x = money-prices[0]-prices[1];
+        if(x<0){
+            return t;
+        }
+        return x;
+    }
+    void sort(int prices[])
+    {
+        int n = prices.length;
+        
+         for (int i = 0; i < n-1; i++)
+        {
+            int min_idx = i;
+            for (int j = i+1; j < n; j++)
+                if (prices[j] < prices[min_idx])
+                    min_idx = j;
+
+            int temp = prices[min_idx];
+            prices[min_idx] = prices[i];
+            prices[i] = temp;
+        }
+    }
+}

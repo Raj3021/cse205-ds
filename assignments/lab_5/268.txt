@@ -1,0 +1,28 @@
+class Solution {
+    public int missingNumber(int[] nums) {
+        sort(nums);
+        int count = nums[0];
+        for(int i=0;i<nums.length;i++){
+            if(count!=nums[i]) return count;
+            count++;
+        }
+        if(count == nums.length) return count;
+        return 0;
+    }
+    void sort(int nums[])
+    {
+        int n = nums.length;
+ 
+        for (int i = 0; i < n-1; i++)
+        {
+            int min_idx = i;
+            for (int j = i+1; j < n; j++)
+                if (nums[j] < nums[min_idx])
+                    min_idx = j;
+
+            int temp = nums[min_idx];
+            nums[min_idx] = nums[i];
+            nums[i] = temp;
+        }
+    }
+}

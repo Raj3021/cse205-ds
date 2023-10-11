@@ -1,0 +1,19 @@
+class Solution {
+    public void rotate(int[][] m) {
+        int l1 = m.length;
+        int temp=l1-1;
+        int[][] ans = new int[l1][l1];
+        for (int i = 0; i <l1; i++){
+            temp = l1-1;
+            for (int j = 0; j < l1; j++) {
+                ans[j][i] = m[temp][i];
+                temp--;
+            }
+        }
+        for (int r = 0; r < l1; ++r){
+            for (int c = 0; c < l1; ++c) {
+                m[r][c] = ans[r][c];
+            }
+        }
+    }
+}
