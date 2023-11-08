@@ -1,0 +1,28 @@
+class Solution {
+    public int largestInteger(int num) {
+        PriorityQueue<Integer> opq = new PriorityQueue<>();
+        PriorityQueue<Integer> epq = new PriorityQueue<>();
+
+        int n = num;
+
+        while(n!=0){
+            if(n%2==0) epq.add(n%10);
+            else opq.add(n%10);
+            // System.out.print(n+ " ");
+            n = n/10;
+        }
+        // System.out.print(n+ " ");
+        n = num;
+        StringBuilder sb = new StringBuilder();
+        while(n!=0){
+            if(n % 2 == 1) sb.insert(0, opq.poll());
+
+            else sb.insert(0, epq.poll());
+
+            n /= 10;
+        }
+
+        return Integer.valueOf(sb.toString());
+
+    }
+}

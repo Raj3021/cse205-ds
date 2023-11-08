@@ -1,0 +1,8 @@
+class Solution {
+    public int maxProduct(int[] nums) {
+        PriorityQueue<Integer> pw = new PriorityQueue<>((a,b) -> b-a);
+        for(int i : nums) pw.add(i);
+
+        return (pw.poll()-1)*(pw.poll()-1);
+    }
+}
